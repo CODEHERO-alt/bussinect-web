@@ -239,7 +239,7 @@ export default function Page() {
                   </div>
 
                   <p className="mt-6 text-xs text-white/35">
-                    Built to feel premium, load fast, and guide users to the app.
+                    Built to feel Clearer, More Productive, and have something to look out for.
                   </p>
                 </div>
               </Section>
