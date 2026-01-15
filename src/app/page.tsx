@@ -1,214 +1,101 @@
-import Link from "next/link";
-import { AppIcon } from "@/components/app-icon";
-import { Glow } from "@/components/glow";
-import { StoreButtons } from "@/components/store-buttons";
-import { Section } from "@/components/section";
+import { BackgroundEffects } from "@/components/background-effects";
+import { WaitlistForm } from "@/components/waitlist-form";
+import { Inter, Playfair_Display } from "next/font/google";
 
-const APP_NAME = process.env.NEXT_PUBLIC_APP_NAME ?? "Businnect";
-const TAGLINE =
-  process.env.NEXT_PUBLIC_APP_TAGLINE ??
-  "A calm, simple place to get the app.";
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+});
 
-export default function HomePage() {
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-serif",
+  display: "swap",
+});
+
+export default function Page() {
   return (
-    <main className="min-h-dvh bg-[#0b0d12] text-white">
-      <Glow />
+    <main
+      className={[
+        "relative min-h-dvh w-full overflow-hidden",
+        "bg-[#07090C] text-[#E9EEF2]",
+        inter.variable,
+        playfair.variable,
+      ].join(" ")}
+    >
+      <BackgroundEffects />
 
-      <div className="mx-auto max-w-3xl px-5 pb-20 pt-14 sm:pt-20">
-        {/* Header */}
-        <header className="flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="h-9 w-9">
-              <AppIcon />
-            </div>
-            <span className="text-sm font-medium tracking-wide text-white/85">
-              {APP_NAME}
-            </span>
-          </div>
+      {/* Full-bleed layout (no “container box” feel) */}
+      <div className="relative z-10 flex min-h-dvh w-full flex-col">
+        {/* Centered hero block, but background remains edge-to-edge */}
+        <section className="flex flex-1 items-center justify-center px-5 pb-10 pt-14 sm:px-10 sm:pb-16 sm:pt-20">
+          <div className="w-full">
+            <div className="mx-auto flex w-full max-w-3xl flex-col items-center text-center">
+              {/* Logo / Icon */}
+              <div className="mb-10 sm:mb-12">
+                <div className="group relative">
+                  {/* Outer app icon glass */}
+                  <div className="relative h-20 w-20 rounded-[22px] border border-white/12 bg-white/[0.06] shadow-[0_10px_30px_rgba(0,0,0,0.45)] backdrop-blur-xl sm:h-24 sm:w-24">
+                    {/* Soft highlight */}
+                    <div className="pointer-events-none absolute inset-0 rounded-[22px] bg-gradient-to-b from-white/10 to-transparent" />
+                    {/* Inner depth */}
+                    <div className="pointer-events-none absolute inset-0 rounded-[22px] shadow-[inset_0_1px_0_rgba(255,255,255,0.12)]" />
 
-          <Link
-            href="/download"
-            className="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm text-white/85 backdrop-blur hover:bg-white/10"
-          >
-            Download
-          </Link>
-        </header>
+                    {/* Portal */}
+                    <div className="absolute inset-0 grid place-items-center">
+                      <div className="relative h-[58%] w-[58%]">
+                        {/* Portal base */}
+                        <div className="absolute inset-0 rounded-[18px] bg-black/35 shadow-[inset_0_1px_8px_rgba(0,0,0,0.55)]" />
+                        <div className="absolute inset-0 rounded-[18px] border border-white/10" />
 
-        {/* Hero (Alcove-inspired: big centered headline + short copy + single CTA) */}
-        <div className="pt-16 sm:pt-24">
-          <div className="mx-auto mb-8 flex w-full justify-center">
-            <div className="h-20 w-20 sm:h-24 sm:w-24">
-              <AppIcon />
-            </div>
-          </div>
+                        {/* Arched doorway */}
+                        <div className="absolute left-1/2 top-[54%] h-[70%] w-[62%] -translate-x-1/2 -translate-y-1/2 rounded-t-full bg-[rgba(255,196,120,0.22)] blur-[1px]" />
+                        <div className="absolute left-1/2 top-[54%] h-[70%] w-[62%] -translate-x-1/2 -translate-y-1/2 rounded-t-full bg-[rgba(255,196,120,0.12)] blur-xl" />
 
-          <h1 className="text-center text-4xl font-semibold tracking-tight sm:text-6xl">
-            A better way to connect.
-          </h1>
-          <h2 className="mt-3 text-center text-4xl font-semibold tracking-tight text-white/80 sm:text-6xl">
-            Without the noise.
-          </h2>
+                        {/* “Breathing” glow */}
+                        <div className="portal-breathe absolute left-1/2 top-[54%] h-[70%] w-[62%] -translate-x-1/2 -translate-y-1/2 rounded-t-full bg-[rgba(255,196,120,0.10)] blur-2xl" />
+                      </div>
+                    </div>
+                  </div>
 
-          <p className="mx-auto mt-7 max-w-xl text-center text-base leading-relaxed text-white/70 sm:text-lg">
-            {TAGLINE}
-          </p>
-
-          <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Link
-              href="/download"
-              className="w-full rounded-full bg-white px-6 py-3 text-center text-sm font-semibold text-black hover:bg-white/90 sm:w-auto"
-            >
-              Get the app
-            </Link>
-
-            <a
-              href="#why"
-              className="w-full rounded-full border border-white/15 bg-white/5 px-6 py-3 text-center text-sm font-medium text-white/85 backdrop-blur hover:bg-white/10 sm:w-auto"
-            >
-              See what it does
-            </a>
-          </div>
-
-          <p className="mt-5 text-center text-xs text-white/45">
-            Fast. Clear. Built for real users.
-          </p>
-        </div>
-
-        {/* Why */}
-        <Section id="why" title="Simple by design" subtitle="Built for speed and clarity.">
-          <div className="grid gap-3 sm:grid-cols-2">
-            {[
-              {
-                title: "Quick onboarding",
-                desc: "Get in, set up your profile, and start connecting in minutes.",
-              },
-              {
-                title: "Clean feed",
-                desc: "See what matters. No clutter, no confusion.",
-              },
-              {
-                title: "Messaging that works",
-                desc: "Start real conversations with business owners and people nearby.",
-              },
-              {
-                title: "Mobile-first experience",
-                desc: "Optimized for phones — the way it’s meant to be used.",
-              },
-            ].map((item) => (
-              <div
-                key={item.title}
-                className="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur"
-              >
-                <h3 className="text-sm font-semibold text-white/90">{item.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-white/65">
-                  {item.desc}
-                </p>
+                  {/* Tiny ambient glow under icon */}
+                  <div className="pointer-events-none absolute left-1/2 top-full mt-4 h-10 w-24 -translate-x-1/2 rounded-full bg-[rgba(46,107,90,0.18)] blur-2xl" />
+                </div>
               </div>
-            ))}
-          </div>
-        </Section>
 
-        {/* Credibility / Results */}
-        <Section
-          title="Communication. Speed. Result."
-          subtitle="The 3 things you said matter most — this is how we deliver them."
-        >
-          <div className="grid gap-3">
-            {[
-              {
-                title: "Communication",
-                points: [
-                  "Clear milestones and daily/48h updates during active work.",
-                  "Short Loom walkthroughs for every delivery (no confusion).",
-                ],
-              },
-              {
-                title: "Speed",
-                points: [
-                  "Lean scope, fast iterations, tight feedback loops.",
-                  "Mobile-first landing + download flow shipped early.",
-                ],
-              },
-              {
-                title: "Result",
-                points: [
-                  "A site that looks premium and loads fast.",
-                  "Direct path to App Store / Play Store with smart routing.",
-                ],
-              },
-            ].map((b) => (
-              <div
-                key={b.title}
-                className="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur"
-              >
-                <h3 className="text-sm font-semibold text-white/90">{b.title}</h3>
-                <ul className="mt-3 space-y-2 text-sm text-white/65">
-                  {b.points.map((p) => (
-                    <li key={p} className="flex gap-2">
-                      <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-white/50" />
-                      <span>{p}</span>
-                    </li>
-                  ))}
-                </ul>
+              {/* Hero headline */}
+              <h1 className="font-[var(--font-sans)] text-[2.35rem] font-semibold leading-[1.05] tracking-[-0.02em] sm:text-6xl">
+                A quiet place to
+              </h1>
+
+              <h2 className="mt-2 font-[var(--font-serif)] text-[2.55rem] font-medium italic leading-[1.05] tracking-[-0.02em] text-white/92 sm:text-[4.1rem]">
+                see what’s new.
+              </h2>
+
+              {/* Subheadline */}
+              <p className="mt-6 max-w-[44rem] text-sm leading-relaxed text-[rgba(170,179,187,0.78)] sm:text-base">
+                The best way to keep up with your favourite websites, newsletters,
+                and subscriptions—without the noise.
+              </p>
+
+              {/* Waitlist form */}
+              <div className="mt-9 w-full max-w-xl">
+                <WaitlistForm />
               </div>
-            ))}
+
+              {/* Ultra subtle micro-copy (optional) */}
+              <p className="mt-8 text-xs text-white/35">
+                Calm by default. Fast when it matters.
+              </p>
+            </div>
           </div>
-        </Section>
+        </section>
 
-        {/* Testimonials (placeholders you can replace with real ones) */}
-        <Section title="What clients say" subtitle="Replace these with real quotes as you collect them.">
-          <div className="grid gap-3 sm:grid-cols-2">
-            {[
-              {
-                quote:
-                  "They moved fast, communicated clearly, and delivered exactly what we needed.",
-                name: "Client",
-                role: "Product Founder",
-              },
-              {
-                quote:
-                  "Clean design, great attention to detail, and zero back-and-forth confusion.",
-                name: "Client",
-                role: "Business Owner",
-              },
-            ].map((t, idx) => (
-              <figure
-                key={idx}
-                className="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur"
-              >
-                <blockquote className="text-sm leading-relaxed text-white/75">
-                  “{t.quote}”
-                </blockquote>
-                <figcaption className="mt-4 text-xs text-white/50">
-                  <span className="text-white/70">{t.name}</span> · {t.role}
-                </figcaption>
-              </figure>
-            ))}
-          </div>
-        </Section>
-
-        {/* Final CTA */}
-        <div className="mt-14 rounded-3xl border border-white/10 bg-white/5 p-6 text-center backdrop-blur sm:p-8">
-          <h3 className="text-xl font-semibold tracking-tight sm:text-2xl">
-            Ready to download?
-          </h3>
-          <p className="mx-auto mt-2 max-w-xl text-sm leading-relaxed text-white/65">
-            Choose your device — we’ll route you to the right store.
-          </p>
-
-          <div className="mt-6 flex justify-center">
-            <StoreButtons />
-          </div>
-        </div>
-
-        {/* Footer */}
-        <footer className="mt-16 flex flex-col items-center gap-2 text-center text-xs text-white/45">
-          <p>
-            © {new Date().getFullYear()} {APP_NAME}
-          </p>
-          <p className="text-white/35">
-            Built for speed & clarity.{" "}
-            <span className="text-white/25">Design + build by Pehchaan Media.</span>
+        {/* Footer pinned to bottom, still full-width */}
+        <footer className="px-5 pb-10 sm:px-10 sm:pb-12">
+          <p className="text-center text-xs text-white/35">
+            © 2025 — @YourHandle
           </p>
         </footer>
       </div>
