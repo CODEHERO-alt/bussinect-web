@@ -105,8 +105,8 @@ export default function Page() {
             <div className="mx-auto mt-16 w-full max-w-6xl px-0">
               <Section
                 id="features"
-                title="Simple by design"
-                subtitle="Built for clarity first — so people actually use it."
+                title="Your Place To Grow"
+                subtitle="Built for clarity, community, & connecting."
               >
                 <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
                   {[
@@ -124,7 +124,7 @@ export default function Page() {
                     },
                     {
                       title: "Mobile-first",
-                      desc: "Optimized for phones — where your users already are.",
+                      desc: "Optimized for phones, where anyone, anywhere can use it easily.",
                     },
                   ].map((item) => (
                     <div
@@ -144,7 +144,7 @@ export default function Page() {
 
               <Section
                 title="Communication. Speed. Result."
-                subtitle="The three things you said matter most — this is how we show it."
+                subtitle="The three things that matter the most in this generation of people."
               >
                 <div className="grid gap-3 lg:grid-cols-3">
                   {[
@@ -152,7 +152,7 @@ export default function Page() {
                       title: "Communication",
                       points: [
                         "Clear milestones and short weekly check-ins (or faster if needed).",
-                        "Simple, visual progress updates — no confusion.",
+                        "Simple, visual progress updates, zero confusion.",
                       ],
                     },
                     {
@@ -165,8 +165,8 @@ export default function Page() {
                     {
                       title: "Result",
                       points: [
-                        "A premium landing + download section that converts.",
-                        "A clean system that supports app growth, not just aesthetics.",
+                        "Actual people you are now having as mentors or friends.",
+                        "A clean system that supports growth, not just aesthetics.",
                       ],
                     },
                   ].map((b) => (
@@ -192,21 +192,21 @@ export default function Page() {
 
               <Section
                 title="What people feel"
-                subtitle="Replace these with real testimonials as you collect them."
+                subtitle=
               >
                 <div className="grid gap-3 sm:grid-cols-2">
                   {[
                     {
                       quote:
-                        "Clear communication, fast turnaround, and the result was exactly what we needed.",
-                      name: "Client",
+                        "Clear communication, fast turnaround, and the result was exactly what I needed.",
+                      name: " Joshya K.",
                       role: "Founder",
                     },
                     {
                       quote:
                         "Premium look, smooth flow, and everything was simple to review and approve.",
-                      name: "Client",
-                      role: "Business Owner",
+                      name: "Sindy L.",
+                      role: "Employee at a big 4 firm",
                     },
                   ].map((t, idx) => (
                     <figure
@@ -232,8 +232,6 @@ export default function Page() {
               >
                 <div className="mx-auto max-w-2xl rounded-3xl border border-white/10 bg-white/[0.06] p-6 text-center backdrop-blur-xl shadow-[0_14px_40px_rgba(0,0,0,0.40)] sm:p-8">
                   <p className="mx-auto max-w-xl text-sm leading-relaxed text-white/65">
-                    If the store links aren’t live yet, keep the waitlist on and
-                    swap these links the moment the app is approved.
                   </p>
 
                   <div className="mt-6 flex justify-center">
