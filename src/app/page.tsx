@@ -1,5 +1,7 @@
 import { BackgroundEffects } from "@/components/background-effects";
 import { WaitlistForm } from "@/components/waitlist-form";
+import { Section } from "@/components/section";
+import { StoreButtons } from "@/components/store-buttons";
 import { Inter, Playfair_Display } from "next/font/google";
 
 const inter = Inter({
@@ -14,6 +16,8 @@ const playfair = Playfair_Display({
   display: "swap",
 });
 
+const APP_NAME = "Businnect";
+
 export default function Page() {
   return (
     <main
@@ -26,76 +30,231 @@ export default function Page() {
     >
       <BackgroundEffects />
 
-      {/* Full-bleed layout (no “container box” feel) */}
+      {/* Full-bleed page (no constrained “box” feel) */}
       <div className="relative z-10 flex min-h-dvh w-full flex-col">
-        {/* Centered hero block, but background remains edge-to-edge */}
+        {/* HERO */}
         <section className="flex flex-1 items-center justify-center px-5 pb-10 pt-14 sm:px-10 sm:pb-16 sm:pt-20">
           <div className="w-full">
-            <div className="mx-auto flex w-full max-w-3xl flex-col items-center text-center">
-              {/* Logo / Icon */}
-              <div className="mb-10 sm:mb-12">
+            <div className="mx-auto flex w-full max-w-4xl flex-col items-center text-center">
+              {/* Icon */}
+              <div className="mb-9 sm:mb-12">
                 <div className="group relative">
-                  {/* Outer app icon glass */}
                   <div className="relative h-20 w-20 rounded-[22px] border border-white/12 bg-white/[0.06] shadow-[0_10px_30px_rgba(0,0,0,0.45)] backdrop-blur-xl sm:h-24 sm:w-24">
-                    {/* Soft highlight */}
                     <div className="pointer-events-none absolute inset-0 rounded-[22px] bg-gradient-to-b from-white/10 to-transparent" />
-                    {/* Inner depth */}
                     <div className="pointer-events-none absolute inset-0 rounded-[22px] shadow-[inset_0_1px_0_rgba(255,255,255,0.12)]" />
 
                     {/* Portal */}
                     <div className="absolute inset-0 grid place-items-center">
                       <div className="relative h-[58%] w-[58%]">
-                        {/* Portal base */}
                         <div className="absolute inset-0 rounded-[18px] bg-black/35 shadow-[inset_0_1px_8px_rgba(0,0,0,0.55)]" />
                         <div className="absolute inset-0 rounded-[18px] border border-white/10" />
 
-                        {/* Arched doorway */}
                         <div className="absolute left-1/2 top-[54%] h-[70%] w-[62%] -translate-x-1/2 -translate-y-1/2 rounded-t-full bg-[rgba(255,196,120,0.22)] blur-[1px]" />
                         <div className="absolute left-1/2 top-[54%] h-[70%] w-[62%] -translate-x-1/2 -translate-y-1/2 rounded-t-full bg-[rgba(255,196,120,0.12)] blur-xl" />
-
-                        {/* “Breathing” glow */}
                         <div className="portal-breathe absolute left-1/2 top-[54%] h-[70%] w-[62%] -translate-x-1/2 -translate-y-1/2 rounded-t-full bg-[rgba(255,196,120,0.10)] blur-2xl" />
                       </div>
                     </div>
                   </div>
 
-                  {/* Tiny ambient glow under icon */}
-                  <div className="pointer-events-none absolute left-1/2 top-full mt-4 h-10 w-24 -translate-x-1/2 rounded-full bg-[rgba(46,107,90,0.18)] blur-2xl" />
+                  <div className="pointer-events-none absolute left-1/2 top-full mt-4 h-10 w-28 -translate-x-1/2 rounded-full bg-[rgba(46,107,90,0.18)] blur-2xl" />
                 </div>
               </div>
 
-              {/* Hero headline */}
-              <h1 className="font-[var(--font-sans)] text-[2.35rem] font-semibold leading-[1.05] tracking-[-0.02em] sm:text-6xl">
-                A quiet place to
+              {/* Headline (premium + cinematic, but Businnect relevant) */}
+              <h1 className="font-[var(--font-sans)] text-[2.15rem] font-semibold leading-[1.05] tracking-[-0.02em] sm:text-6xl">
+                Business meets people,
               </h1>
 
               <h2 className="mt-2 font-[var(--font-serif)] text-[2.55rem] font-medium italic leading-[1.05] tracking-[-0.02em] text-white/92 sm:text-[4.1rem]">
-                see what’s new.
+                without the noise.
               </h2>
 
-              {/* Subheadline */}
-              <p className="mt-6 max-w-[44rem] text-sm leading-relaxed text-[rgba(170,179,187,0.78)] sm:text-base">
-                The best way to keep up with your favourite websites, newsletters,
-                and subscriptions—without the noise.
+              <p className="mt-6 max-w-[46rem] text-sm leading-relaxed text-[rgba(170,179,187,0.78)] sm:text-base">
+                {APP_NAME} helps business owners and everyday users connect faster —
+                discover, chat, and build real relationships in a clean, mobile-first experience.
               </p>
 
-              {/* Waitlist form */}
-              <div className="mt-9 w-full max-w-xl">
+              {/* Primary CTA row */}
+              <div className="mt-9 flex w-full max-w-xl flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
+                <a
+                  href="#download"
+                  className="rounded-full bg-white px-6 py-3 text-center text-sm font-semibold text-black shadow-[0_12px_28px_rgba(0,0,0,0.35)] transition duration-300 ease-out hover:bg-white/90 active:scale-[0.99] focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30"
+                >
+                  Download the app
+                </a>
+
+                <a
+                  href="#features"
+                  className="rounded-full border border-white/15 bg-white/5 px-6 py-3 text-center text-sm font-semibold text-white/85 backdrop-blur transition duration-300 ease-out hover:bg-white/10 active:scale-[0.99] focus:outline-none focus-visible:ring-2 focus-visible:ring-white/20"
+                >
+                  See how it works
+                </a>
+              </div>
+
+              {/* Waitlist (optional, still premium) */}
+              <div className="mt-10 w-full max-w-xl">
                 <WaitlistForm />
               </div>
 
-              {/* Ultra subtle micro-copy (optional) */}
-              <p className="mt-8 text-xs text-white/35">
-                Calm by default. Fast when it matters.
+              <p className="mt-6 text-xs text-white/35">
+                Calm design. Fast flow. Clear outcomes.
               </p>
+            </div>
+
+            {/* Sections (still full-bleed background, readable inner width) */}
+            <div className="mx-auto mt-16 w-full max-w-6xl px-0">
+              <Section
+                id="features"
+                title="Simple by design"
+                subtitle="Built for clarity first — so people actually use it."
+              >
+                <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                  {[
+                    {
+                      title: "Fast onboarding",
+                      desc: "Create your profile quickly and start connecting immediately.",
+                    },
+                    {
+                      title: "Clean discovery",
+                      desc: "Find the right people and businesses without clutter.",
+                    },
+                    {
+                      title: "Messaging that works",
+                      desc: "Start real conversations with a smooth chat experience.",
+                    },
+                    {
+                      title: "Mobile-first",
+                      desc: "Optimized for phones — where your users already are.",
+                    },
+                  ].map((item) => (
+                    <div
+                      key={item.title}
+                      className="rounded-2xl border border-white/10 bg-white/[0.06] p-5 backdrop-blur-xl shadow-[0_10px_30px_rgba(0,0,0,0.35)]"
+                    >
+                      <h3 className="text-sm font-semibold text-white/90">
+                        {item.title}
+                      </h3>
+                      <p className="mt-2 text-sm leading-relaxed text-white/65">
+                        {item.desc}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </Section>
+
+              <Section
+                title="Communication. Speed. Result."
+                subtitle="The three things you said matter most — this is how we show it."
+              >
+                <div className="grid gap-3 lg:grid-cols-3">
+                  {[
+                    {
+                      title: "Communication",
+                      points: [
+                        "Clear milestones and short weekly check-ins (or faster if needed).",
+                        "Simple, visual progress updates — no confusion.",
+                      ],
+                    },
+                    {
+                      title: "Speed",
+                      points: [
+                        "Lean scope → fast iterations.",
+                        "Mobile-first decisions → less rework later.",
+                      ],
+                    },
+                    {
+                      title: "Result",
+                      points: [
+                        "A premium landing + download section that converts.",
+                        "A clean system that supports app growth, not just aesthetics.",
+                      ],
+                    },
+                  ].map((b) => (
+                    <div
+                      key={b.title}
+                      className="rounded-2xl border border-white/10 bg-white/[0.06] p-5 backdrop-blur-xl shadow-[0_10px_30px_rgba(0,0,0,0.35)]"
+                    >
+                      <h3 className="text-sm font-semibold text-white/90">
+                        {b.title}
+                      </h3>
+                      <ul className="mt-3 space-y-2 text-sm text-white/65">
+                        {b.points.map((p) => (
+                          <li key={p} className="flex gap-2">
+                            <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-white/50" />
+                            <span>{p}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </Section>
+
+              <Section
+                title="What people feel"
+                subtitle="Replace these with real testimonials as you collect them."
+              >
+                <div className="grid gap-3 sm:grid-cols-2">
+                  {[
+                    {
+                      quote:
+                        "Clear communication, fast turnaround, and the result was exactly what we needed.",
+                      name: "Client",
+                      role: "Founder",
+                    },
+                    {
+                      quote:
+                        "Premium look, smooth flow, and everything was simple to review and approve.",
+                      name: "Client",
+                      role: "Business Owner",
+                    },
+                  ].map((t, idx) => (
+                    <figure
+                      key={idx}
+                      className="rounded-2xl border border-white/10 bg-white/[0.06] p-5 backdrop-blur-xl shadow-[0_10px_30px_rgba(0,0,0,0.35)]"
+                    >
+                      <blockquote className="text-sm leading-relaxed text-white/75">
+                        “{t.quote}”
+                      </blockquote>
+                      <figcaption className="mt-4 text-xs text-white/50">
+                        <span className="text-white/70">{t.name}</span> · {t.role}
+                      </figcaption>
+                    </figure>
+                  ))}
+                </div>
+              </Section>
+
+              {/* Download section (still / only) */}
+              <Section
+                id="download"
+                title="Download Businnect"
+                subtitle="Choose your platform. Simple and direct."
+              >
+                <div className="mx-auto max-w-2xl rounded-3xl border border-white/10 bg-white/[0.06] p-6 text-center backdrop-blur-xl shadow-[0_14px_40px_rgba(0,0,0,0.40)] sm:p-8">
+                  <p className="mx-auto max-w-xl text-sm leading-relaxed text-white/65">
+                    If the store links aren’t live yet, keep the waitlist on and
+                    swap these links the moment the app is approved.
+                  </p>
+
+                  <div className="mt-6 flex justify-center">
+                    <StoreButtons />
+                  </div>
+
+                  <p className="mt-6 text-xs text-white/35">
+                    Built to feel premium, load fast, and guide users to the app.
+                  </p>
+                </div>
+              </Section>
+
+              <div className="h-10 sm:h-16" />
             </div>
           </div>
         </section>
 
-        {/* Footer pinned to bottom, still full-width */}
+        {/* Footer */}
         <footer className="px-5 pb-10 sm:px-10 sm:pb-12">
           <p className="text-center text-xs text-white/35">
-            © 2025 — @YourHandle
+            © 2025 — {APP_NAME}
           </p>
         </footer>
       </div>
