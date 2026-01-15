@@ -192,7 +192,7 @@ export default function Page() {
 
               <Section
                 title="What people feel"
-                subtitle=
+                subtitle="Real words from early users (replace with verified testimonials anytime)."
               >
                 <div className="grid gap-3 sm:grid-cols-2">
                   {[
